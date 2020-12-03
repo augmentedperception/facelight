@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Learning Illumination from Diverse Portraits</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0">
+        <meta name="description" content="Learning Illumination from Diverse Portraits is a SIGGRAPH Asia 2020 Technical Communications Paper.">
+        <meta name="keywords" content="learning illumination, portraits, augmented perception, google, siggraph asia">
+        <meta name="author" content="Augmented Perception, Google">
+        <meta name="robots" content="all">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <canvas id="global-canvas"></canvas>
+        <div class="container">
+            <div class="header">
+              <div class="title">
+                  <h1>Learning Illumination from<br />Diverse Portraits</h1>
+                  <div class="title-line"><hr></div>
+              </div>
+                <div class="subheading">
+                    <h2>SIGGRAPH Asia 2020 Technical Communications</h2>
+                    <p class="subheading-link">
+                        <a href="https://arxiv.org/pdf/2008.02396.pdf">Download PDF (author version)</a><br />
+                        <a href="https://dl.acm.org/doi/10.1145/3410700.3425432">ACM DOI</a>
+                    </p>
+                </div>
+                  <div class="authors">
+                    <h4>
+                        <span class="no-wrap">Chloe LeGendre</span>,
+                        <span class="no-wrap">Wan-Chun Ma</span>,
+                        <span class="no-wrap">Rohit Pandey</span>,
+                        <span class="no-wrap">Sean Fanello</span>,
+                        <span class="no-wrap">Christoph Rhemann</span>,
+                        <span class="no-wrap">Jason Dourgarian</span>,
+                        <span class="no-wrap">Jay Busch</span>,
+                        <span class="no-wrap">Paul Debevec</span>
+                    </h4>
+                  </div>
+                  <div class="organization">
+                      <h3>Google LLC and Google Research</h3>
+                  </div>
+                </div>
+              </div>
+            <div class="content">
+                <div class="section" style="padding: 0 0 10px 0;">
+                    <div class="video-container">
+                        <iframe src="//www.youtube.com/embed/W2DUqOAg5GE" 
+                        frameborder="0" allowfullscreen class="video"></iframe>
+                    </div>
+                </div>
+                <div class="paper-thumbnails">
+                    <div class="page">
+                        <a href="https://arxiv.org/pdf/2008.02396.pdf"><img src="assets/img/paper_page01.jpg" alt="Download .pdf" class="linkimg"></a>
+                    </div>
+                    <div class="page">
+                        <a href="https://arxiv.org/pdf/2008.02396.pdf"><img src="assets/img/paper_page05.jpg" alt="Download .pdf" class="linkimg"></a>
+                    </div>
+                    <div class="page">
+                        <a href="https://arxiv.org/pdf/2008.02396.pdf"><img src="assets/img/paper_page11.jpg" alt="Download .pdf" class="linkimg"></a>
+                    </div>
+                    <div class="page">
+                        <a href="https://arxiv.org/pdf/2008.02396.pdf"><img src="assets/img/paper_page13.jpg" alt="Download .pdf" class="linkimg"></a>
+                    </div>
+                    <p class="pt-15">
+                        Click to <a href="https://arxiv.org/pdf/2008.02396.pdf" class="content-link">download</a> a PDF of the paper.
+                    </p>
+                </div>
+                <div class="section">
+                    <h5>Abstract</h5>
+                    <p><span class="dropcap">W</span>e present a learning-based technique for estimating high dynamic range (HDR), omnidirectional illumination from a single low dynamic range (LDR) portrait image captured under arbitrary indoor or outdoor lighting conditions. We train our model using portrait photos paired with their ground truth environmental illumination.  We generate a rich set of such photos by using a light stage to record the reflectance field and alpha matte of 70 diverse subjects in various expressions.  We then relight the subjects using image-based relighting with a database of one million HDR lighting environments, compositing the relit subjects onto paired high-resolution background imagery recorded during the lighting acquisition. We train the lighting estimation model using rendering-based loss functions and add a multi-scale adversarial loss to estimate plausible high frequency lighting detail. We show that our technique outperforms the state-of-the-art technique for portrait-based lighting estimation, and we also show that our method reliably handles the inherent ambiguity between overall lighting strength and surface albedo, recovering a similar scale of illumination for subjects with diverse skin tones. We demonstrate that our method allows virtual objects and digital characters to be added to a portrait photograph with consistent illumination.  Our lighting inference runs in real-time on a smartphone, enabling realistic rendering and compositing of virtual objects into live video for augmented reality applications.</p>
+                </div>
+            </div>
+            <div class="content">
+                <img src="assets/img/in_the_wild_portraits.jpg" alt="Input in-the-wild portraits" style="width: 100%">
+                <p class="pt-5 italic center-text">
+                    Input in-the-wild portraits, with illumination estimated using our technique.<br />
+                    Diffuse, matte silver, and mirror spheres are rendered with our lighting inference.
+                </p>
+            </div>
+            <div class="content">
+                <img src="assets/img/wash_effect.jpg" alt="TODO" class="pt-40" style="width: 100%">
+                <p class="pt-5 italic center-text">
+                    <b>(a)</b> Inputs to our model, generated using image-based relighting and a photographed reflectance basis for each evaluation subject.<br />
+                    <b>(b)</b> Left: ground truth (GT) lighting used to generate a; Right: lighting estimated from a using our method. <b>(c)</b> The same subject lit with the predicted lighting. <b>(d)</b> The same subject lit with the 2nd order SH decomposition of the GT lighting. <b>(e)</b> A new subject lit with the GT lighting.<br />
+                    <b>(f)</b> The new subject lit with the illumination estimated from image a using our method. <b>(g)</b> The new subject lit with the 2nd order SH decomposition of the GT lighting. Our method produces lighting environments that can be used to realistically render virtual subjects into existing scenes, while the 2nd order SH lighting leads to an overly diffuse skin appearance.
+                </p>
+            </div>
+            <div class="content">
+                <div class="section pt-40">
+                  <p>For model comparisons, contact: chlobot [at] google.com</p>
+                </div>
+              <div class="section">
+                <h5 style="text-transform: none;">BibTeX</h5>
+                <div class="bibtex-text">
+                        @inproceedings{10.1145/3410700.3425432,<br />
+                            &nbsp;&nbsp;author = {LeGendre, Chloe and Ma, Wan-Chun and Pandey, Rohit and Fanello, Sean and Rhemann, Christoph and Dourgarian, Jason and Busch, Jay and Debevec, Paul},<br />
+                            &nbsp;&nbsp;title = {Learning Illumination from Diverse Portraits},<br />
+                            &nbsp;&nbsp;year = {2020},<br />
+                            &nbsp;&nbsp;isbn = {9781450380805},<br />
+                            &nbsp;&nbsp;publisher = {Association for Computing Machinery},<br />
+                            &nbsp;&nbsp;address = {New York, NY, USA},<br />
+                            &nbsp;&nbsp;url = {https://doi.org/10.1145/3410700.3425432},<br />
+                            &nbsp;&nbsp;doi = {10.1145/3410700.3425432},<br />
+                            &nbsp;&nbsp;booktitle = {SIGGRAPH Asia 2020 Technical Communications},<br />
+                            &nbsp;&nbsp;articleno = {7},<br />
+                            &nbsp;&nbsp;numpages = {4},<br />
+                            &nbsp;&nbsp;keywords = {lighting estimation, inverse lighting},<br />
+                            &nbsp;&nbsp;location = {Virtual Event, Republic of Korea},<br />
+                            &nbsp;&nbsp;series = {SA '20}<br />
+                        }
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+                <div class="footer-decoration">
+                    <div class="footer-decoration-col" style="background-color: #aecbfa;"></div>
+                    <div class="footer-decoration-col" style="background-color: #f6aea9;"></div>
+                    <div class="footer-decoration-col" style="background-color: #fde293;"></div>
+                    <div class="footer-decoration-col" style="background-color: #a8dab5;"></div>
+                </div>
+                <div class="footer-content">
+                    <div class="footer-links-row">
+                        <div class="footer-links-left">
+                            <h6>Related Work</h6>
+                            <ul class="footer-links">
+                                <li><a href="https://augmentedperception.github.io/deeplight/">DeepLight: Learning Illumination for Unconstrained Mobile Mixed Reality</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-right">
+                            <h6>Additional Links</h6>
+                            <ul class="footer-links">
+                                <li><a href="https://dl.acm.org/">ACM Digital Library</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
