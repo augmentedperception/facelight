@@ -334,15 +334,16 @@ hr {
 @media (max-width: 768px) {
     .bibtex-text {
         font-family: 'Source Code Pro', monospace;
-        font-size: 15px;
+        font-size: 12px;
         padding: 0 20px 50px;
     }
 }
 @media (max-width: 576px) {
     .bibtex-text {
         font-family: 'Source Code Pro', monospace;
-        font-size: 15px;
+        font-size: 12px;
         padding: 0 0 50px;
+        word-wrap: break-word;
     }
 }
 a.viewerlink:link {
